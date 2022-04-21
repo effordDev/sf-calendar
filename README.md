@@ -1,4 +1,4 @@
-# Full Calendar(Salesforce)
+# Full Calendar(Salesforce) 📅📆
 *FullCalendar V4*
 
 Provides a ```<isExposed>false</isExposed>``` that loads the FullCalendar static resources and displays a calendar. This component is capable of rendering events on any custom object along with standard objects like ```event```.
