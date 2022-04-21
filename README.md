@@ -3,6 +3,12 @@
 
 Provides a ```<isExposed>false</isExposed>``` that loads the FullCalendar static resources and displays a calendar. This component is capable of rendering events on any custom object along with standard objects like ```event```.
 
+## Public Methods
+```setEvents``` is a public method that takes in formatted events, and renders them to the calendar. By defualt the function will remove the current events and render the new ones.
+```ruby
+ @api setEvents(events)
+```
+
 ## Views
 The calendar provides multiple views in order to display the events. 
 
