@@ -1,0 +1,80 @@
+<template>
+     <div class="slds-grid slds-wrap" style="background:#ffffff; padding-bottom:0.5rem;padding-left:0.5rem;padding-right:0.5rem;padding-top:0.5rem;overflow-y:auto">
+ 
+          <div class="slds-col slds-size_8-of-12 slds-col_bump-right">
+               <h2 class="slds-text-heading_medium">{calendarLabel}</h2>
+          </div>
+          <div class="slds-col slds-size_3-of-12">
+               <div class="slds-clearfix">
+                    <div class="slds-float_right">
+                    <div class="slds-button-group" role="group">
+                         <button class="slds-button slds-button_icon" onclick={previousHandler}>
+                              <lightning-icon 
+                                   icon-name="utility:chevronleft" 
+                                   alternative-text="Previous" 
+                                   size="small">
+                              </lightning-icon>
+                         </button>
+                         <button class="slds-button slds-button_icon" onclick={nextHandler}>
+                              <lightning-icon 
+                                   icon-name="utility:chevronright" 
+                                   alternative-text="Next" 
+                                   size="small">
+                              </lightning-icon>
+                         </button>
+                         <button class="slds-button slds-button_icon" onclick={refresh}>
+                              <lightning-icon 
+                                   icon-name="utility:refresh" 
+                                   alternative-text="Next" 
+                                   size="small">
+                              </lightning-icon>
+                         </button>
+                    </div>
+                    </div>
+               </div>
+          </div>
+        <div class="slds-col slds-size_3-of-12">
+            <div class="slds-button-group" role="group">
+                <button class="slds-button slds-button_icon" onclick={today} style="margin-right:1em">
+                    <lightning-icon 
+                         icon-name="standard:today" 
+                         alternative-text="Today" 
+                         size="small">
+                    </lightning-icon>
+                </button>
+                <button class="slds-button slds-button_icon" onclick={listViewHandler}>
+                    <lightning-icon 
+                         icon-name="utility:list" 
+                         alternative-text="List View" 
+                         size="small">
+                    </lightning-icon>
+                </button>
+                <button class="slds-button slds-button_icon" onclick={dailyViewHandler}>
+                    <lightning-icon 
+                         icon-name="utility:dayview" 
+                         alternative-text="Day view" 
+                         size="small">
+                    </lightning-icon>
+                </button>
+                <button class="slds-button slds-button_icon" onclick={weeklyViewHandler}>
+                    <lightning-icon 
+                         icon-name="utility:weeklyview" 
+                         alternative-text="Weekly View" 
+                         size="small">
+                    </lightning-icon>
+                </button>
+                <button class="slds-button slds-button_icon" onclick={monthlyViewHandler}>
+                    <lightning-icon 
+                         icon-name="utility:monthlyview" 
+                         alternative-text="Monthly View" 
+                         size="small">
+                    </lightning-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+ 
+     <div style="background:#ffffff;" class="slds-grid" >
+          <div id="calendar" class="calendar" lwc:dom="manual" ontouchmove={handleScroll} onscroll={handleScroll}></div>
+     </div>
+</template>
