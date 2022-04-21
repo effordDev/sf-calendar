@@ -84,12 +84,12 @@ export default class Calendar extends LightningElement {
                //      }
                // },
                eventClick: info => {
-                    console.log("eventClick => fceventclick", info);
                     this.event('fceventclick', info)
                },
-               eventMouseEnter: info => {console.log("mouse enter", info)},
+               eventMouseEnter: info => {
+                    this.event('eventmouseenter', info)
+               },
                dateClick: info => {
-                    console.log("date click", info)
                     this.event('fcdateclick', info)
                },
           });
