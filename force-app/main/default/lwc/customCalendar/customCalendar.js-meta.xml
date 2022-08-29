@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed> 
+
+    <masterLabel>Custom Calendar</masterLabel>
+
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage, lightningCommunity__Default">
+            <property name="recordId" label="Record Id" type="String" default="{!recordId}" required="true"></property>
+            <property name="childObject" label="Child object" type="String" description="Child object that represents the events to be displayed on the calendar" datasource="apex://CustomPicklist" required="true"></property>
+            <property name="parentFieldName" label="Parent Field API Name" type="String" description="Example: If displaying child record from an account 'Account__c'. This should be the API name of the field that looks up to the parent" required="true"></property>
+            <property name="startDatetimeField" label="Start Datetime API Field" type="String" description="Api Name of the field that contains the Start Datetime" required="true"></property>
+            <property name="endDatetimeField" label="End Datetime API Field" type="String" description="Api Name of the field that contains the End Datetime" required="true"></property>
+        </targetConfig>
+    </targetConfigs>
+
+</LightningComponentBundle>
