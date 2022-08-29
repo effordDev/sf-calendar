@@ -84,7 +84,6 @@ export default class Calendar extends LightningElement {
                //           return 1
                //      }
                // },
-
                eventDrop: info => { console.log('event drag start', info) },
                eventClick: info => { this.event('fceventclick', info) },
                eventMouseEnter: info => {console.log("mouse enter", info) },
