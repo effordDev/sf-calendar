@@ -13,7 +13,7 @@ global with sharing class CustomPicklist extends VisualEditor.DynamicPickList {
             String label = objTyp.getDescribe().getLabel();
             
             //Exclude all the unwanted Sobjects e.g. History, Share etc
-            if (apiName.toLowerCase().right(3) == '__c') {
+            if (apiName.toLowerCase().right(3) ==  '__c') {
                 VisualEditor.DataRow val = new VisualEditor.DataRow(label, apiName);
                 myValues.addRow(val);
 
