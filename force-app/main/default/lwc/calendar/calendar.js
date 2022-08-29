@@ -2,7 +2,7 @@ import { api, LightningElement } from 'lwc';
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import fullCalendar from "@salesforce/resourceUrl/fullCalendar";
 import { loadStyle, loadScript } from "lightning/platformResourceLoader";
-import { formatShifts, jsToApexDate, invertColor, msToHMS} from './utils'
+import { jsToApexDate, invertColor, msToHMS} from './utils'
 export default class Calendar extends LightningElement {
 
      calendarLabel = ''
@@ -42,7 +42,7 @@ export default class Calendar extends LightningElement {
                ])
                
                //create calendar and render
-               await this.init()
+               this.init()
 
           } catch (error) {
          
@@ -75,6 +75,7 @@ export default class Calendar extends LightningElement {
                initialView: 'dayGridMonth',
                header: false,
                events: [],
+               editable: true,
                eventRendering : 'list-item',
                // eventOrder: function(a, b) {
                //      if (a.slotSort < b.slotSort) {
@@ -83,15 +84,11 @@ export default class Calendar extends LightningElement {
                //           return 1
                //      }
                // },
-               eventClick: info => {
-                    this.event('fceventclick', info)
-               },
-               eventMouseEnter: info => {
-                    this.event('eventmouseenter', info)
-               },
-               dateClick: info => {
-                    this.event('fcdateclick', info)
-               },
+
+               eventDrop: info => { console.log('event drag start', info) },
+               eventClick: info => { this.event('fceventclick', info) },
+               eventMouseEnter: info => {console.log("mouse enter", info) },
+               dateClick: info => { this.event('fcdateclick', info) },
           });
 
           console.log(this.calendar)
@@ -103,8 +100,6 @@ export default class Calendar extends LightningElement {
           let endDate         = jsToApexDate(this.calendar.view.activeEnd)
 
           this.event('datechange', { startDate, endDate }) 
-          // this.calenderRendered = true
-          // this.handleDates(this.calendar)
      }
 
      refresh() {
@@ -116,8 +111,7 @@ export default class Calendar extends LightningElement {
           const postedEvents = this.calendar.getEvents()
           postedEvents.forEach(event => event.remove())
 
-          const formattedEvents = formatShifts(events)
-          formattedEvents.forEach(event => this.calendar.addEvent(event))
+          events.forEach(event => this.calendar.addEvent(event))
      }
 
      setDates() {
