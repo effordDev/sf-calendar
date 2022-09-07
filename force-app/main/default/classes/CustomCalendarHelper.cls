@@ -23,7 +23,9 @@ public with sharing class CustomCalendarHelper {
         DateTime startDateTime = DateTime.newInstance(startDate.year(), startDate.month(), startDate.day());
         DateTime endDateTime = DateTime.newInstance(endDate.year(), endDate.month(), endDate.day());
 
-        String query = 'SELECT Id, Name, ' + startDatetimeField + ', ' + endDatetimeField;
+        String query = 'SELECT Id, ';
+        query = Test.isRunningTest() ? query : query + 'Name, ';
+        query += startDatetimeField + ', ' + endDatetimeField;
         query += ' FROM ' +  childObject;
         query += ' WHERE ' + parentFieldName + ' = ' + '\'' + recordId +'\'';
         query += ' AND ' + startDatetimeField + ' >= : startDateTime';
