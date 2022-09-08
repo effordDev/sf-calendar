@@ -1,21 +1,49 @@
-import { api, LightningElement } from "lwc";
-import { NavigationMixin } from 'lightning/navigation';
-import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils';
-import getEvents from "@salesforce/apex/CustomCalendarHelper.getEvents";
-import { formatEvents } from "./utilities";
+import { api, LightningElement } from "lwc"
+import { NavigationMixin } from 'lightning/navigation'
+import { subscribe, unsubscribe, onError, setDebugFlag, isEmpEnabled } from 'lightning/empApi'
+import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils'
+import getEvents from "@salesforce/apex/CustomCalendarHelper.getEvents"
+import { formatEvents } from "./utilities"
 export default class CustomCalendar extends NavigationMixin(LightningElement) {
-     @api recordId;
-     @api childObject;
-     @api parentFieldName;
-     @api startDatetimeField;
-     @api endDatetimeField;
+     @api recordId
+     @api childObject
+     @api parentFieldName
+     @api startDatetimeField
+     @api endDatetimeField
+     @api channelName
 
-     startDate;
-     endDate;
+     startDate
+     endDate
 
      connectedCallback() {
-          this.addEventListener('fceventclick', this.handleEventClick);
-          this.addEventListener('fcdateclick', this.handleDateClick);
+          this.addEventListener('fceventclick', this.handleEventClick)
+          this.addEventListener('fcdateclick', this.handleDateClick)
+          
+          if (!!this.channelName) {
+               this.handleSubscribe()
+          }
+     }
+          
+     async handleSubscribe() {
+          
+          const messageCallback = (response) => {
+               console.log('New message received: ', JSON.stringify(response))
+               console.log('refreshing...')
+               this.fetchEvents()
+          }
+     
+          const response = await subscribe(this.channel, -1, messageCallback)
+               
+          console.log(
+               'Subscription request sent to: ',
+               JSON.stringify(response.channel)
+          )
+          this.subscription = response
+          
+     }    
+
+     get channel() {
+          return `/event/${this.channelName}`
      }
 
      get config() {
@@ -31,12 +59,12 @@ export default class CustomCalendar extends NavigationMixin(LightningElement) {
      }
 
      handleDateChange(event) {
-          const { startDate, endDate } = event.detail.value;
+          const { startDate, endDate } = event.detail.value
 
-          this.startDate = startDate;
-          this.endDate = endDate;
+          this.startDate = startDate
+          this.endDate = endDate
 
-          this.fetchEvents();
+          this.fetchEvents()
      }
 
      handleEventClick(event) {
@@ -60,7 +88,7 @@ export default class CustomCalendar extends NavigationMixin(LightningElement) {
 
      handleDateClick(event) {
           try {
-               console.log('fcdateclick caught', event.detail.value.date);
+               console.log('fcdateclick caught', event.detail.value.date)
 
                const date = event.detail.value.date 
 
@@ -91,10 +119,10 @@ export default class CustomCalendar extends NavigationMixin(LightningElement) {
      }
 
      async fetchEvents() {
-          console.log(this.config);
-          const events = formatEvents(await getEvents(this.config), this.config);
-          console.log(events);
+          console.log(this.config)
+          const events = formatEvents(await getEvents(this.config), this.config)
+          console.log(events)
 
-          this.template.querySelector("c-calendar").setEvents(events);
+          this.template.querySelector("c-calendar").setEvents(events)
      }
 }
