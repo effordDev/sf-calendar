@@ -81,7 +81,7 @@ this.event('eventmouseenter', info)
 ```
 
 ## Rerendering the Calendar
-Haveing the calendar rerender automatically is handled by using platform events. If you choose not to use platform events, the user will need to click the refresh button at the top right of the calendar to see live changes. Below are instructions for setting up the platform events.
+Having the calendar rerender automatically is handled by using platform events. If you choose not to use platform events, the user will need to click the refresh button at the top right of the calendar to see live changes. Below are instructions for setting up the platform events.
 
 #### 1. Create the Platform Event:
   - Navigate to Setup > Integrations > Platform Events
