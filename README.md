@@ -80,4 +80,41 @@ Triggered when the user mouses over an event. An event is dispatched with an ```
 this.event('eventmouseenter', info)
 ```
 
+## Rerendering the Calendar
+Haveing the calendar rerender automatically is handled by using platform events. If you choose not to use platform events, the user will need to click the refresh button at the top right of the calendar to see live changes. Below are instructions for setting up the platform events.
+
+#### 1. Create the Platform Event:
+  - Navigate to Setup > Integrations > Platform Events
+  - Click New Platform Event
+  - Give your Platform Event a Label and API Name
+    - I suggest using the name of the object that holds the events on the calendar EG.
+    - Be sure the Publish Behavior: ```Publish After Commit```
+    ![image](https://user-images.githubusercontent.com/36901822/189163721-b0c35f28-e231-4782-861c-c3feb5c647e4.png)
+   
+#### 2. Create a Flow to create the Platform Event
+  - Navigate to Flows in setup
+  - Create a new Record Triggered Flow for the object that holds the events on the calendar EG
+  
+  ![image](https://user-images.githubusercontent.com/36901822/189165985-c1b9859c-7ea0-4649-bd3a-5422de83c5f6.png)
+  - Make sure the flow is an After Trigger / Optimize the Flow for: ```Actions and Related Records```
+  
+  ![image](https://user-images.githubusercontent.com/36901822/189166387-3305cede-c9a3-4a9d-8433-c1743af50d3f.png)
+  - The Flow should have one node that create the Platform Event
+  
+  ![image](https://user-images.githubusercontent.com/36901822/189166561-4d4eb68d-92d4-4669-b6f0-5d0b842b6366.png)
+  
+  - Add a Create records node and Select your Platform Event as the record to create.
+  - Based on your naming conventino you may see your Platform Event and sObject - Be sure you select your Platform Event
+  ![image](https://user-images.githubusercontent.com/36901822/189167019-d924e810-8274-4706-a4d9-275c1086952d.png)
+  ![image](https://user-images.githubusercontent.com/36901822/189167103-18ddf332-82f5-4f4a-bab1-85e6d4ca8796.png)
+
+#### 3. Copy the Platform Event API Name. 
+  - Navigate to the Lightning Record Page the contains the calendar component.
+  - Paste the API Name into the Platform Event Name field
+  ![image](https://user-images.githubusercontent.com/36901822/189165307-fde17426-9bf1-4561-8bc7-1a9b6d913e69.png)
+
+
+
+
+
 
