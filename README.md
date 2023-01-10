@@ -7,7 +7,7 @@
 
 *FullCalendar V4*
 
-Provides a ```<isExposed>false</isExposed>``` that loads the FullCalendar static resources and displays a calendar. This component is capable of rendering events on any custom object along with standard objects like ```event```.
+Provides a ```<isExposed>false</isExposed>``` and a ```<isExposed>true</isExposed>``` that loads the FullCalendar static resources and displays a calendar. This component is capable of rendering events on any custom object along with standard objects like ```event```. The exposed calendar is for admins to set up on lightning pages. The un exposed calendar component is for devs to use and extend in other lwc's.
 
 ## Public Methods
 ```setEvents``` is a public method that takes in formatted events, and renders them to the calendar. By default the function will remove the current events and render the new ones.
