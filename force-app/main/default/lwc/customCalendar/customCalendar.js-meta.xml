@@ -14,7 +14,7 @@
     </targets>
 
     <targetConfigs>
-        <targetConfig targets="lightning__RecordPage, lightningCommunity__Default">
+        <targetConfig targets="lightning__RecordPage, lightningCommunity__Default, lightning__AppPage, lightning__HomePage">
             <property name="recordId" label="Record Id" type="String" default="{!recordId}" required="true"></property>
             <property name="childObject" label="Child object" type="String" description="Child object that represents the events to be displayed on the calendar" datasource="apex://CustomPicklist" required="true"></property>
             <property name="parentFieldName" label="Parent Field API Name" type="String" description="Example: If displaying child record from an account 'Account__c'. This should be the API name of the field that looks up to the parent" required="true"></property>
