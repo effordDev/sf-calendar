@@ -20,6 +20,7 @@
             <property name="parentFieldName" default="OwnerId" label="Parent Field API Name" type="String" description="Example: If displaying child record from an account 'Account__c'. This should be the API name of the field that looks up to the parent" required="true"></property>
             <property name="startDatetimeField" default="StartDateTime" label="Start Datetime API Field" type="String" description="Api Name of the field that contains the Start Datetime" required="true"></property>
             <property name="endDatetimeField" default="EndDateTime" label="End Datetime API Field" type="String" description="Api Name of the field that contains the End Datetime" required="true"></property>
+            <property name="titleField" default="Subject" label="Title API Field" type="String" description="Api Name of the field that should show as title of event (You probably want 'Name')" required="true"></property>
             <property name="channelName" label="Platform Event Name" type="String" description="Platform Event Api Name if you want the calendar to rerender automatically"></property>
         </targetConfig>
 
@@ -29,6 +30,7 @@
             <property name="parentFieldName" default="OwnerId" label="Parent Field API Name" type="String" description="Example: If displaying child record from an account 'Account__c'. This should be the API name of the field that looks up to the parent" required="true"></property>
             <property name="startDatetimeField" default="StartDateTime" label="Start Datetime API Field" type="String" description="Api Name of the field that contains the Start Datetime" required="true"></property>
             <property name="endDatetimeField" default="EndDateTime" label="End Datetime API Field" type="String" description="Api Name of the field that contains the End Datetime" required="true"></property>
+            <property name="titleField" default="Subject" label="Title API Field" type="String" description="Api Name of the field that should show as title of event" required="true"></property>
             <property name="channelName" label="Platform Event Name" type="String" description="Platform Event Api Name if you want the calendar to rerender automatically"></property>
         </targetConfig>
     </targetConfigs>

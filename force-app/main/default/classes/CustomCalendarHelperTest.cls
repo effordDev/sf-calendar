@@ -26,6 +26,7 @@ public with sharing class CustomCalendarHelperTest {
             'WhatId',
             'StartDateTime',
             'EndDateTime',
+            'Subject',
             System.today(),
             System.today().addDays(10)
         );

@@ -7,6 +7,7 @@ public with sharing class CustomCalendarHelper {
         String parentFieldName,
         String startDatetimeField,
         String endDatetimeField,
+        String titleField,
         Date startDate,
         Date endDate) {
 
@@ -15,7 +16,8 @@ public with sharing class CustomCalendarHelper {
             childObject == null ||
             parentFieldName == null ||
             startDatetimeField == null ||
-            endDatetimeField == null 
+            endDatetimeField == null ||
+            titleField == null
         ) {
             throw new AuraHandledException('Missing Config');
         }
@@ -23,8 +25,8 @@ public with sharing class CustomCalendarHelper {
         DateTime startDateTime = DateTime.newInstance(startDate.year(), startDate.month(), startDate.day());
         DateTime endDateTime = DateTime.newInstance(endDate.year(), endDate.month(), endDate.day());
 
-        String query = 'SELECT Id, ';
-        query = childObject== 'Event' ? query : query + 'Name, ';
+        String query = 'SELECT Id, ' + titleField + ', ';
+        // query = childObject== 'Event' ? query : query + 'Name, ';
         query += startDatetimeField + ', ' + endDatetimeField;
         query += ' FROM ' +  childObject;
         query += ' WHERE ' + parentFieldName + ' = ' + '\'' + recordId +'\'';
