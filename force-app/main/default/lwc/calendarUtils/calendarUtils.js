@@ -40,7 +40,7 @@ const formatEvents = (events, config) => {
      return events.map(event => {
           event.id = event.Id
           // event.status = event.Shift_Status__c
-          event.title = event?.Name
+          event.title = event[config.titleField]
           event.start = event[config.startDatetimeField]
           event.end = event[config.endDatetimeField]
           // event.textColor = invertColor(event?.Color__c, true)
@@ -57,5 +57,4 @@ const jsToApexDate = (date) => {
      return `${year}-${month}-${day}`
 }
 
-
-export { formatEvents, jsToApexDate }
+export { formatEvents, jsToApexDate } 

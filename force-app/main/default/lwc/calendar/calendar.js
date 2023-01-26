@@ -2,7 +2,7 @@ import { api, LightningElement } from 'lwc';
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import fullCalendar from "@salesforce/resourceUrl/fullCalendar";
 import { loadStyle, loadScript } from "lightning/platformResourceLoader";
-import { jsToApexDate, invertColor, msToHMS} from './utils'
+import { jsToApexDate } from 'c/calendarUtils'
 export default class Calendar extends LightningElement {
 
      calendarLabel = ''

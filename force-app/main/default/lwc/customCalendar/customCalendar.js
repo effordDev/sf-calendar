@@ -4,13 +4,14 @@ import { subscribe, unsubscribe, onError, setDebugFlag, isEmpEnabled } from 'lig
 import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils'
 import Id from '@salesforce/user/Id';
 import getEvents from "@salesforce/apex/CustomCalendarHelper.getEvents"
-import { formatEvents } from "./utilities"
+import { formatEvents } from "c/calendarUtils"
 export default class CustomCalendar extends NavigationMixin(LightningElement) {
      @api recordId
      @api childObject
      @api parentFieldName
      @api startDatetimeField
      @api endDatetimeField
+     @api titleField
      @api channelName
 
      userId = Id
@@ -60,6 +61,7 @@ export default class CustomCalendar extends NavigationMixin(LightningElement) {
                parentFieldName: this.parentFieldName,
                startDatetimeField: this.startDatetimeField,
                endDatetimeField: this.endDatetimeField,
+               titleField: this.titleField,
                startDate: this.startDate,
                endDate: this.endDate
           }
