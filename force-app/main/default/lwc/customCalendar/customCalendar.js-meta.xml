@@ -14,12 +14,21 @@
     </targets>
 
     <targetConfigs>
-        <targetConfig targets="lightning__RecordPage, lightningCommunity__Default, lightning__AppPage, lightning__HomePage">
-            <property name="recordId" label="Record Id" type="String" default="{!recordId}" required="true"></property>
-            <property name="childObject" label="Child object" type="String" description="Child object that represents the events to be displayed on the calendar" datasource="apex://CustomPicklist" required="true"></property>
-            <property name="parentFieldName" label="Parent Field API Name" type="String" description="Example: If displaying child record from an account 'Account__c'. This should be the API name of the field that looks up to the parent" required="true"></property>
-            <property name="startDatetimeField" label="Start Datetime API Field" type="String" description="Api Name of the field that contains the Start Datetime" required="true"></property>
-            <property name="endDatetimeField" label="End Datetime API Field" type="String" description="Api Name of the field that contains the End Datetime" required="true"></property>
+        <targetConfig targets="lightning__RecordPage, lightningCommunity__Default">
+            <property name="recordId" default="!recordId" label="Record Id" type="String" required="true"></property>
+            <property name="childObject" default="Event" label="Child object" type="String" description="Child object that represents the events to be displayed on the calendar" datasource="apex://CustomPicklist" required="true"></property>
+            <property name="parentFieldName" default="OwnerId" label="Parent Field API Name" type="String" description="Example: If displaying child record from an account 'Account__c'. This should be the API name of the field that looks up to the parent" required="true"></property>
+            <property name="startDatetimeField" default="StartDateTime" label="Start Datetime API Field" type="String" description="Api Name of the field that contains the Start Datetime" required="true"></property>
+            <property name="endDatetimeField" default="EndDateTime" label="End Datetime API Field" type="String" description="Api Name of the field that contains the End Datetime" required="true"></property>
+            <property name="channelName" label="Platform Event Name" type="String" description="Platform Event Api Name if you want the calendar to rerender automatically"></property>
+        </targetConfig>
+
+        <targetConfig targets="lightning__AppPage, lightning__HomePage">
+            <!-- <property name="recordId" label="Record Id" type="String" default="{!recordId}"></property> -->
+            <property name="childObject" default="Event" label="Child object" type="String" description="Child object that represents the events to be displayed on the calendar" datasource="apex://CustomPicklist" required="true"></property>
+            <property name="parentFieldName" default="OwnerId" label="Parent Field API Name" type="String" description="Example: If displaying child record from an account 'Account__c'. This should be the API name of the field that looks up to the parent" required="true"></property>
+            <property name="startDatetimeField" default="StartDateTime" label="Start Datetime API Field" type="String" description="Api Name of the field that contains the Start Datetime" required="true"></property>
+            <property name="endDatetimeField" default="EndDateTime" label="End Datetime API Field" type="String" description="Api Name of the field that contains the End Datetime" required="true"></property>
             <property name="channelName" label="Platform Event Name" type="String" description="Platform Event Api Name if you want the calendar to rerender automatically"></property>
         </targetConfig>
     </targetConfigs>

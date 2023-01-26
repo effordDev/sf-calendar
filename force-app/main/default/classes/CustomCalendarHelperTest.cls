@@ -20,7 +20,7 @@ public with sharing class CustomCalendarHelperTest {
 
     @isTest
     private static void getEventsTest(){
-        CustomCalendarHelper.getEvents(
+        List<sObject> sobs = CustomCalendarHelper.getEvents(
             [SELECT Id FROM Account LIMIT 1].Id,
             'Event',
             'WhatId',
@@ -29,5 +29,7 @@ public with sharing class CustomCalendarHelperTest {
             System.today(),
             System.today().addDays(10)
         );
+
+        system.assertEquals(true, sobs.size() >= 1);
     }
 }

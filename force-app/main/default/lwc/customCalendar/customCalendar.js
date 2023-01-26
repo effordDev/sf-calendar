@@ -2,6 +2,7 @@ import { api, LightningElement } from "lwc"
 import { NavigationMixin } from 'lightning/navigation'
 import { subscribe, unsubscribe, onError, setDebugFlag, isEmpEnabled } from 'lightning/empApi'
 import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils'
+import Id from '@salesforce/user/Id';
 import getEvents from "@salesforce/apex/CustomCalendarHelper.getEvents"
 import { formatEvents } from "./utilities"
 export default class CustomCalendar extends NavigationMixin(LightningElement) {
@@ -12,6 +13,8 @@ export default class CustomCalendar extends NavigationMixin(LightningElement) {
      @api endDatetimeField
      @api channelName
 
+     userId = Id
+
      startDate
      endDate
 
@@ -21,6 +24,10 @@ export default class CustomCalendar extends NavigationMixin(LightningElement) {
           
           if (!!this.channelName) {
                this.handleSubscribe()
+          }
+
+          if (!this.recordId) {
+               this.recordId = this.userId
           }
      }
           
