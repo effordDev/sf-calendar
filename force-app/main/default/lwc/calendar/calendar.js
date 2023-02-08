@@ -75,7 +75,7 @@ export default class Calendar extends LightningElement {
                initialView: 'dayGridMonth',
                header: false,
                events: [],
-               editable: true,
+               // editable: true, //keep false till dragdrop fixed
                eventRendering : 'list-item',
                // eventOrder: function(a, b) {
                //      if (a.slotSort < b.slotSort) {
