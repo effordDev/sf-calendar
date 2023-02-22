@@ -114,6 +114,7 @@ Having the calendar rerender automatically is handled by using platform events. 
   ![image](https://user-images.githubusercontent.com/36901822/189165307-fde17426-9bf1-4561-8bc7-1a9b6d913e69.png)
   
   Demo
+
 https://user-images.githubusercontent.com/36901822/220666349-bf4e8b6d-636d-43af-831f-c3761e5a6eed.mov
 
 
