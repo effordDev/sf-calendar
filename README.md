@@ -112,6 +112,9 @@ Having the calendar rerender automatically is handled by using platform events. 
   - Navigate to the Lightning Record Page the contains the calendar component.
   - Paste the API Name into the Platform Event Name field
   ![image](https://user-images.githubusercontent.com/36901822/189165307-fde17426-9bf1-4561-8bc7-1a9b6d913e69.png)
+  
+  Demo
+[sf-calendar-platformevents-demo.webm](https://user-images.githubusercontent.com/36901822/220665615-6b386cca-547a-4771-84af-678af64e18fc.webm)
 
 
 
