@@ -6,6 +6,7 @@
 </a>
 
 *FullCalendar V4*
+[Full Calendar Implementation as LWC](https://fullcalendar.io/)
 
 Provides a ```<isExposed>false</isExposed>``` and a ```<isExposed>true</isExposed>``` that loads the FullCalendar static resources and displays a calendar. This component is capable of rendering events on any custom object along with standard objects like ```event```. The exposed calendar is for admins to set up on lightning pages. The un exposed calendar component is for devs to use and extend in other lwc's.
 
