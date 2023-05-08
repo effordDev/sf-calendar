@@ -76,7 +76,7 @@ export default class CustomCalendar extends NavigationMixin(LightningElement) {
           this.fetchEvents()
      }
 
-     handleEventClick(event) {
+     handleEventClick = (event) => {
           try {
                const { Id } = event.detail.value.event._def.extendedProps
                console.log(Id)
@@ -95,7 +95,7 @@ export default class CustomCalendar extends NavigationMixin(LightningElement) {
           }
      }
 
-     handleDateClick(event) {
+     handleDateClick = (event) => {
           try {
                console.log('fcdateclick caught', event.detail.value.date)
 
