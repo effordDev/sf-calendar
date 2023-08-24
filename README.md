@@ -19,6 +19,12 @@ Provides a ```<isExposed>false</isExposed>``` and a ```<isExposed>true</isExpose
 ```ruby
  @api setEvents(events)
 ```
+
+```setValidRanges``` is a public method that limits which dates the user can navigate to and where events can go. [Doc](https://fullcalendar.io/docs/v4/validRange)
+
+```ruby
+ @api setValidRanges(range)
+```
 > For event info, see the [Event Object](https://fullcalendar.io/docs/event-object)
 
 ## Views

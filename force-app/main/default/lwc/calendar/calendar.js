@@ -113,6 +113,12 @@ export default class Calendar extends LightningElement {
           events.forEach(event => this.calendar.addEvent(event))
      }
 
+     @api setValidRanges(range) {
+
+          this.calendar.setOption('validRange', range);
+          this.calendar.render();
+     }
+
      setDates() {
           let startDate       = jsToApexDate(this.calendar.view.activeStart)
           let endDate         = jsToApexDate(this.calendar.view.activeEnd)
