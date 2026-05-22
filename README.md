@@ -1,13 +1,6 @@
 # Full Calendar(Salesforce) 📅📆
 
-<a href="https://githubsfdeploy.herokuapp.com">
-  <img alt="Deploy to Salesforce"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
-</a>
-
-<a href="https://github.com/jsmithdev/sfdx-deploy-instructions">
-  Deploy via sfdx instead
-</a>
+[![Deploy with reapd](https://reapd.io/badge.svg)](https://reapd.io/app?author=effordDev&repo=sf-calendar&branch=main)
 
 *FullCalendar V4*
 [Full Calendar Implementation as LWC](https://fullcalendar.io/)
